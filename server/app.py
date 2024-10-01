@@ -27,9 +27,8 @@ db.init_app(app)
 def get_workout(workout_name):
     workout = Workouts.query.filter_by(name=workout_name).first()
     if workout:
-        return workout.to_dict(),200
-    else:
-        return {"error":"Workout not found"}, 404
+        return workout.to_dict(), 200
+    return {"message": "Workout not found"}, 404
 
 # get all workouts from the database
 @app.get("/api/workouts")

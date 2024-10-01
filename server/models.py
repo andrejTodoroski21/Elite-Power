@@ -22,7 +22,7 @@ class Workouts(db.Model, SerializerMixin):
     # Category relationship
     category = db.relationship("Category", back_populates="workouts")
 
-    __serialize_rules__ = ('-id', '-category_id', 'name', 'description', 'video_url', 'category')
+    __serialize_rules__ = ('-id', '-category.workouts', 'name', 'description', 'videourl', 'category.name')
 
 class Program(db.Model, SerializerMixin):
     __tablename__ = "programs"
@@ -54,10 +54,11 @@ class Category(db.Model, SerializerMixin):
     __tablename__ = "categories"
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable = False)
+    name = db.Column(db.String(50), nullable=False)
 
     workouts = db.relationship("Workouts", back_populates="category")
 
+    __serialize_rules__ = ('-workouts',)
 
 class ProgramWorkout(db.Model, SerializerMixin):
     __tablename__ = "program_workouts"
