@@ -23,6 +23,16 @@ migrate = Migrate(app, db)
 db.init_app(app)
 
 # get one workout from the database
+@app.get("/api/workouts/<string:workout_name>")
+def get_workout(workout_name):
+    workout = Workouts.query.filter_by(name=workout_name).first()
+    if workout:
+        return workout.to_dict(),200
+    else:
+        return {"error":"Workout not found"}, 404
+
+# get all workouts from the database
 @app.get("/api/workouts")
-def get_workout(workout_id):
-    return [i.to_dict for i in Workouts.query(workout.id)], 200
+def get_all_workouts():
+    return [i.to_dict() for i in Workouts.query.all()], 200
+        
