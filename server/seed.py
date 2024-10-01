@@ -11,6 +11,7 @@ faker = Faker()
 if __name__ == '__main__':
     with app.app_context():
         Workouts.query.delete()
+        Category.query.delete()
         print("Seeding database...")
         print("Creating Categories")
         print("Creating Workouts")

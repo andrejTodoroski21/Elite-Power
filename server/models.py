@@ -10,19 +10,40 @@ metadata = MetaData(naming_convention={
 
 db = SQLAlchemy(metadata=metadata)
 
-class Workouts(db.Model, SerializerMixin):
+# class Workouts(db.Model, SerializerMixin):
+#     __tablename__ = "workouts"
+
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(100), nullable=False)
+#     description = db.Column(db.Text, nullable=False)
+#     videourl = db.Column(db.String, nullable=False)
+#     # foreign key with category
+#     category_id = db.Column(db.Integer, db.ForeignKey("categories.id"), nullable=False)
+#     # Category relationship
+#     category = db.relationship("Category", back_populates="workouts")
+
+#     __serialize_rules__ = ('-id', '-category.workouts', 'name', 'description', 'videourl', 'category.name', '-Category')
+
+class Workouts(db.Model):
     __tablename__ = "workouts"
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
     videourl = db.Column(db.String, nullable=False)
-    # foreign key with category
     category_id = db.Column(db.Integer, db.ForeignKey("categories.id"), nullable=False)
-    # Category relationship
     category = db.relationship("Category", back_populates="workouts")
 
-    __serialize_rules__ = ('-id', '-category.workouts', 'name', 'description', 'videourl', 'category.name')
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "description": self.description,
+            "videourl": self.videourl,
+            "category_id": self.category_id,
+            "category": self.category.name if self.category else None  # Avoids circular reference
+        }
+
 
 class Program(db.Model, SerializerMixin):
     __tablename__ = "programs"
@@ -50,7 +71,18 @@ class User(db.Model, SerializerMixin):
 
     __serialize_rules__ = ('-password', 'first_name', 'last_name', 'email', 'programs')
 
-class Category(db.Model, SerializerMixin):
+# class Category(db.Model, SerializerMixin):
+#     __tablename__ = "categories"
+
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(50), nullable=False)
+
+#     workouts = db.relationship("Workouts", back_populates="category")
+
+#     __serialize_rules__ = ('-workouts', '-Workouts',)
+
+
+class Category(db.Model):
     __tablename__ = "categories"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -58,7 +90,13 @@ class Category(db.Model, SerializerMixin):
 
     workouts = db.relationship("Workouts", back_populates="category")
 
-    __serialize_rules__ = ('-workouts',)
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "workouts": [workout.to_dict() for workout in self.workouts]
+        }
+
 
 class ProgramWorkout(db.Model, SerializerMixin):
     __tablename__ = "program_workouts"
