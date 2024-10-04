@@ -7,7 +7,8 @@ function Workouts(){
     useEffect(() => {
         fetch ("api/workouts")
         .then(res => res.json())
-        .then(data => setWorkouts(data))
+        .then(data => {console.log(data)
+            setWorkouts(data)})
     },[]);
 
     return (
@@ -23,3 +24,4 @@ function Workouts(){
     );
 }
 export default Workouts
+

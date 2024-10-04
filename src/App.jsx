@@ -1,12 +1,13 @@
-import { useState } from 'react'
-import './index.css'
+import React from "react";
+import Workouts from "./Components/Workouts";  // Adjust path based on your file structure
 
 function App() {
-
-  return (
-    <>
-    </>
-  )
+    return (
+        <div>
+            <h1>Workout List</h1>
+            <Workouts />
+        </div>
+    );
 }
 
-export default App
+export default App;
