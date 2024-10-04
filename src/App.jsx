@@ -4,7 +4,7 @@ import Workouts from "./Components/Workouts";  // Adjust path based on your file
 function App() {
     return (
         <div>
-            <h1>Workout List</h1>
+            <h1 id="workout-list">Workout List</h1>
             <Workouts />
         </div>
     );

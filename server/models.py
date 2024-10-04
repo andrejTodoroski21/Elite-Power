@@ -31,6 +31,7 @@ class Workouts(db.Model):
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
     videourl = db.Column(db.String, nullable=False)
+    picture_url = db.Column(db.String, nullable=True)
     category_id = db.Column(db.Integer, db.ForeignKey("categories.id"), nullable=False)
     category = db.relationship("Category", back_populates="workouts")
 
@@ -41,7 +42,8 @@ class Workouts(db.Model):
             "description": self.description,
             "videourl": self.videourl,
             "category_id": self.category_id,
-            "category": self.category.name if self.category else None  # Avoids circular reference
+            "category": self.category.name if self.category else None,  # Avoids circular reference
+            "picture_url": self.picture_url
         }
 
 

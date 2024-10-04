@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
         # chest exercises 
         pushup = Workouts(name = "Pushup", category_id = chest.id, description = "A push-up is a calisthenic exercise that involves raising and lowering the body while lying face down by bending and straightening the arms.",videourl = "https://www.youtube.com/watch?v=mm6_WcoCVTA")
-        barbell_bench_press = Workouts(name = "Barbell bench press", category_id = chest.id, description = "A weightlifting exercise that involves lying on a bench and pushing a weight upward using your hands.",videourl = "https://www.youtube.com/watch?v=mm6_WcoCVTA")
+        barbell_bench_press = Workouts(name = "Barbell bench press", category_id = chest.id, description = "A weightlifting exercise that involves lying on a bench and pushing a weight upward using your hands.",videourl = "https://www.youtube.com/watch?v=mm6_WcoCVTA", picture_url = "https://steelsupplements.com/cdn/shop/articles/shutterstock_193409486_1000x.jpg?v=1639396039")
         incline_bench_press = Workouts(name = "Incline bench press", category_id = chest.id, description = "It's performed on an incline bench that's usually set at a 30–45 degree angle, targeting the upper chest.",videourl = "https://www.youtube.com/watch?v=mm6_WcoCVTA")
         machine_flye = Workouts(name = "Machine flye", category_id = chest.id, description = "An upper body strength training exercise that targets the chest, deltoids, and triceps.",videourl = "https://www.youtube.com/watch?v=mm6_WcoCVTA")
         smith_machine_bench_press = Workouts(name = "Smith machine bench press", category_id = chest.id, description = "a compound exercise that uses a Smith machine and a bench to press a barbell above you.",videourl = "https://www.youtube.com/watch?v=mm6_WcoCVTA")

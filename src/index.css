@@ -1,0 +1,11 @@
+
+
+.workout-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr); 
+    text-align: center;
+}
+#workout-list{
+    text-align: center;
+    /* font-size: large; */
+}
