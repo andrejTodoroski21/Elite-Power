@@ -1,15 +1,26 @@
+@font-face {
+    font-family: rogueFont;
+    src: url(../rogue.ttf);
+  }
 
+*{
+    font-family: rogueFont;
+}
 
 .workout-container{
     display: grid;
-    grid-template-columns: repeat(3,1fr); 
+    grid-template-columns: repeat(2,1fr); 
     text-align: center;
+    gap: 10px;
 }
 #workout-list{
     text-align: center;
     /* font-size: large; */
 }
 img{
-    max-width: 60%;
-    height: auto;
+  width: 100%; 
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  margin: 10px;
 }

@@ -44,8 +44,8 @@ function Workouts(){
             <div className="workout-container">
                 {workouts.map(workout => (
                     <div key={workout.name}>  {/* Display the workout name */}
-                        <h3>{workout.name}</h3>
                         <img src={workout.picture_url} alt={workout.name}  />  {/* Display the image */}
+                        <h3>{workout.name}</h3>
                     </div>
                 ))}
             </div>
