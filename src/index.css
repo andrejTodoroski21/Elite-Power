@@ -6,6 +6,9 @@
 *{
     font-family: rogueFont;
 }
+body {
+  margin:0;
+}
 
 .workout-container{
     display: grid;
@@ -23,4 +26,52 @@ img{
   object-fit: cover;
   aspect-ratio: 16/9;
   margin: 10px;
+}
+.nav-links{
+  display: flex;
+  justify-content: space-evenly;
+}
+#elite-power{
+  font-size: 40px;
+  color: white;
+  display: flexbox;
+  text-align: left;
+  padding: 20px;
+
+}
+nav{
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav #title{
+  font-size: 2rem;
+  color: white;
+  margin: 1rem;
+  text-decoration: none;
+}
+
+nav ul{
+  display: flex;
+}
+nav ul li{
+  list-style: none;
+}
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 0.6rem;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+}
+
+#p{
+  color: red;
+}
+#r{
+  color: red;
 }
