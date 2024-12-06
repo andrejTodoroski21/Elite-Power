@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Workouts from './Components/Workouts.jsx'
 import About from './components/About.jsx'
-import Home from './components/Home.jsx'
+// import Home from './components/Home.jsx'
 
 import './index.css'
 
@@ -16,10 +16,10 @@ const routes = [
     path: "/",
     element: <App />,
     children: [
-      {
-        path: "home",
-        element: <Home />
-      },
+      // {
+      //   path: "home",
+      //   element: <Home />
+      // },
       {
         path: "workouts",
         element: <Workouts />

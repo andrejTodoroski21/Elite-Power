@@ -34,6 +34,7 @@ img{
 #elite-power{
   font-size: 40px;
   color: white;
+
   display: flexbox;
   text-align: left;
   padding: 20px;
@@ -64,9 +65,13 @@ nav ul li a {
   display: block;
   text-decoration: none;
   color: white;
+  transition: color 0.3 ease;
   padding: 0.6rem;
   margin: 0 0.5rem;
   border-radius: 0.5rem;
+}
+nav ul li a:hover{
+  color: red;
 }
 
 #p{
@@ -74,4 +79,7 @@ nav ul li a {
 }
 #r{
   color: red;
+}
+.separator{
+  color:white;
 }
