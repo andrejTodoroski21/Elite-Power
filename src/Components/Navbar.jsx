@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import WorkoutsDropdown from "./WorkoutsDropDown";
+
 
 
 function Navbar(){
@@ -10,7 +12,7 @@ function Navbar(){
                     <Link to="/about">About <span className="separator">|</span></Link>
                 </li>
                 <li>
-                    <Link to="/services">Services <span className="separator">|</span></Link>
+                    <WorkoutsDropdown/>
                 </li>
                 <li>
                     <Link to="/contact">Contact <span className="separator">|</span></Link>
