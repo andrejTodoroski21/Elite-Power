@@ -35,6 +35,20 @@ def get_workout(workout_name):
 def get_all_workouts():
     return [i.to_dict() for i in Workouts.query.all()], 200
 
+@app.get("/api/workouts/category/<int:category_id>")
+def get_workouts_by_category(category_id):
+    category = Category.query.get(category_id)
+    if not category:
+        return {"message": "Category not found"}, 404
+    workouts = Workouts.query.filter_by(category_id=category_id).all()
+    return [workout.to_dict() for workout in workouts], 200
+
+# Get all categories (for the dropdown)
+@app.get("/api/categories")
+def get_categories():
+    categories = Category.query.all()
+    return [category.to_dict() for category in categories], 200
+
         
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
